@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна робота №3</title>
+</head>
+<style>
+    .wrapper {
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        padding-top: 100px;
+    }
+    .item_title {
+        font-size: 30px;
+        font-weight: bold;
+
+    }
+
+    .item_subtitle {
+        font-style: italic;
+        font-size: 22px;
+        margin-bottom: 50px;
+    }
+
+    #number {
+        width: 300px;
+    }
+
+    input,
+    button,
+    label,
+    select,
+    textarea,
+    table {
+        font-size: 20px;
+    }
+
+    textarea {
+        resize: none;
+    }
+
+    .next {
+        border: none;
+        border-top: 7px double #000;
+        color: #000;
+        overflow: visible;
+        text-align: center;
+        height: 0;
+    }
+
+    .form_hidden {
+        display: none;
+    }
+
+    table {
+        margin: 0 auto;
+        border-spacing: 0;
+    }
+
+    table th {
+        padding: 10px;
+        background-color: lightgray;
+        border: 1px solid #000;
+    }
+
+    table td {
+        text-align: left;
+        padding: 10px;
+        border: 1px solid #000;
+    }
+
+    .table_result {
+        border-bottom: none;
+        border-top: none;
+    }
+
+    #table_result1 {
+        border-top: 1px solid #000;
+    }
+
+    #table_result3 {
+        border-bottom: 1px solid #000;
+    }
+
+    .buttons_wrap {
+        padding: 10px;
+        background-color: burlywood;
+        margin: 20px auto;
+        width: 600px;
+
+    }
+</style>
+
+<body>
+    <div class="wrapper">
+        <div class="wrapper_item">
+            <div class="item_title">Завдання №1</div>
+            <div class="item_subtitle">Вивід тексту із певним розміром шрифту</div>
+            <form class="forma" action="">
+                <textarea rows="5" cols="100" id="set_text_fontsize" placeholder="Введіть текст"></textarea>
+                <br><br>
+                <input type="number" id="set_fontsize" placeholder="Введіть розмір шрифту">
+                <br><br>
+                <button id="start1">Виконати</button>
+                <br><br>
+                <hr><br><br>
+                <label id="result1"></label>
+            </form>
+        </div>
+        <br><br>
+        <hr class="next"><br><br>
+
+
+        <div class="wrapper_item">
+            <div class="item_title">Завдання №2</div>
+            <div class="item_subtitle">Вивід рядків у таблицю</div>
+            <form class="forma" action="">
+                <textarea rows="5" cols="50" id="set_string" placeholder="Введіть текст"></textarea>
+                <br><br>
+                <button id="start2">Виконати</button>
+                <br><br>
+                <hr><br><br>
+                <table id="result2">
+                    <tr></tr>
+                </table>
+            </form>
+        </div>
+        <br><br>
+        <hr class="next"><br><br>
+
+
+        <div class="wrapper_item">
+            <div class="item_title">Завдання №3</div>
+            <div class="item_subtitle">Створення заголовків &lt;h2&gt;</div>
+            <form class="forma" action="">
+                <input type="number" id="set_quantity_title" placeholder="Введіть кількість заголовків &lt;h2&gt;"
+                    style="width: 300px;">
+                <br><br>
+                <button id="start3">Виконати</button>
+                <br><br>
+                <hr><br><br>
+                <div id="result3"></div>
+            </form>
+        </div>
+        <br><br>
+        <hr class="next"><br><br>
+
+
+        <div class="wrapper_item">
+            <div class="item_title">Завдання №4</div>
+            <div class="item_subtitle">Операції із параметрами функції</div>
+            <form class="forma" action="">
+                <textarea rows="5" cols="50" id="set_arguments"
+                    placeholder="Введіть аргументи через кому">Jane, 1, 3, like, 5, 9, read, 4, book</textarea>
+                <br><br>
+                <button id="start4">Виконати</button>
+                <br><br>
+                <hr><br><br>
+                <label id="result4"></label>
+            </form>
+        </div>
+        <br><br>
+        <hr class="next"><br><br>
+
+
+        <div class="wrapper_item">
+            <div class="item_title">Завдання №5</div>
+            <div class="item_subtitle">Виведення поточної дати</div>
+            <form class="forma" action="">
+                <table class="table_task5">
+                    <tr>
+                        <th>Завдання</th>
+                        <th></th>
+                        <th>Результат</th>
+                    </tr>
+                    <tr>
+                        <td rowspan="3">Виведення поточної дати та часу</td>
+                        <td rowspan="3">
+                            <button id="start5">Виконати</button>
+                        </td>
+                        <td id="table_result1" class="table_result">Дата: </td>
+                    </tr>
+                    <tr>
+                        <td id="table_result2" class="table_result">День: </td>
+                    </tr>
+                    <tr>
+                        <td id="table_result3" class="table_result">Час: </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <br><br>
+        <hr class="next"><br><br>
+
+
+        <div class="wrapper_item">
+            <div class="item_title">Завдання №6</div>
+            <div class="item_subtitle">Публікація дати</div>
+            <form class="forma" action="">
+                <textarea rows="2" cols="50" id="set_date"
+                    placeholder="Введіть дату у форматі: дд.мм.рррр або дд/мм/рррр або дд-мм-рррр"></textarea>
+                <br><br>
+                <div class="buttons_wrap">
+                    <button id="addDateToArea1">18.03.2024</button>
+                    <button id="addDateToArea2">17/03/2024</button>
+                    <button id="addDateToArea3">12-03-2024</button>
+                    <button id="addDateToArea4">01-03-2024</button>
+                </div>
+                <button id="start6">Виконати</button>
+                <br><br>
+                <hr><br><br>
+                <label id="result6"></label>
+            </form>
+        </div>
+        <br><br>
+        <hr class="next"><br><br>
+
+
+        <div class="wrapper_item">
+            <div class="item_title">Завдання №7</div>
+            <div class="item_subtitle">Знаходження всіх дат у тексті у форматі РРРР-ММ-ДД</div>
+            <form class="forma" action="">
+                <textarea rows="5" cols="70" id="set_text_date"
+                    placeholder="Введіть текст із датами у форматі: 'РРРР-ММ-ДД'">Lorem ipsum dolor #33c00f sit amet consectetur adipisicing elit. Architecto 2024.07.22 veritatis, perferendis, 2004.03.17 excepturi ipsam quasi 1999.01.04 eius quaerat quidem quo, sunt repudiandae repellat dicta dolore laudantium 2023.12.31 facere voluptatibus consequuntur 2012.05.25 optio? Exercitationem, explicabo!</textarea>
+                <br><br>
+                <button id="start7">Виконати</button>
+                <br><br>
+                <hr><br><br>
+                <label id="result7"></label>
+            </form>
+        </div>
+        <br><br>
+        <hr class="next"><br><br>
+
+        <div class="wrapper_item">
+            <div class="item_title">Завдання №8</div>
+            <div class="item_subtitle">Конвертація в "camelCase"</div>
+            <form class="forma" action="">
+                <input style="width: 350px;" type="text" id="set_to_camel"
+                    placeholder="Введіть текст в стилі 'snake_case'">
+                <br><br>
+                <button id="start8">Конвертувати</button>
+                <br><br>
+                <hr><br><br>
+                <label id="result8"></label>
+            </form>
+        </div>
+        <br><br>
+        <hr class="next"><br><br>
+
+
+        <div class="wrapper_item">
+            <div class="item_title">Завдання №9</div>
+            <div class="item_subtitle">Конвертація в "snake_case"</div>
+            <form class="forma" action="">
+                <input style="width: 350px;" type="text" id="set_to_snake"
+                    placeholder="Введіть текст в стилі 'camelCase'">
+                <br><br>
+                <button id="start9">Конвертувати</button>
+                <br><br>
+                <hr><br><br>
+                <label id="result9"></label>
+            </form>
+        </div>
+        <br><br>
+        <hr class="next"><br><br>
+
+
+        <div class="wrapper_item">
+            <div class="item_title">Завдання №10</div>
+            <div class="item_subtitle">Знаходження кольору тексту у HEX-форматі</div>
+            <form class="forma" action="">
+                <textarea rows="5" cols="70" id="set_text_colors"
+                    placeholder="Введіть текст, у якому будуть написані коди кольорів у форматі hex">Lorem ipsum dolor #df12dd sit amet consectetur adipisicing elit. Architecto #33c00f veritatis, perferendis, #000 excepturi ipsam quasi #18b5aa eius quaerat quidem quo, sunt repudiandae repellat dicta dolore laudantium #18b facere voluptatibus #bb3 consequuntur #7933bb optio? Exercitationem, #b33 explicabo!</textarea>
+                <br><br>
+                <button id="start10">Виконати</button>
+                <br><br>
+                <hr><br><br>
+                <label id="result10"></label>
+            </form>
+        </div>
+        <br><br>
+        <hr class="next"><br><br>
+
+        
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>
