@@ -1,5 +1,6 @@
 let start1 = document.getElementById('start1');
 let start3 = document.getElementById('start3');
+let start4 = document.getElementById('start4');
 
 // =================================================================== 1
 start1.addEventListener('click', function (e) {
@@ -119,5 +120,16 @@ start3.addEventListener('click', function (e) {
 });
 
 // =================================================================== 4
+
+
+
+
+
+start4.addEventListener('click', function (e) {
+    e.preventDefault();
+    document.getElementById('task4').style.display = 'block';
+    document.getElementById('start4').style.display = 'none';
+    showTask();
+});
 
 
