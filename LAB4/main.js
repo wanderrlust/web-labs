@@ -47,20 +47,20 @@ const tasks = [
     { question: '12 * 3 =', options: ['27', '22', '24', '36'], answer: '36' },
 ];
 
-let currentTaskIndex = 0;
-let correctAnswers = 0;
+let currentTaskIndex1 = 0;
+let correctAnswers1 = 0;
 
-const scoreElement = document.getElementById('score');
-const nextTaskButton = document.getElementById('nextTask');
-nextTaskButton.disabled = true;
-const taskElement = document.getElementById('task');
-const optionsElement = document.getElementById('options');
-const resultElement = document.getElementById('result3');
+const scoreElement1 = document.getElementById('score1');
+const nextTaskButton1 = document.getElementById('nextTask1');
+nextTaskButton1.disabled = true;
+const taskElement1 = document.getElementById('task1');
+const optionsElement1 = document.getElementById('options');
+const resultElement1 = document.getElementById('result3');
 
-function showTask() {
-    const task = tasks[currentTaskIndex];
-    taskElement.textContent = task.question;
-    optionsElement.innerHTML = '';
+function showTask1() {
+    const task = tasks[currentTaskIndex1];
+    taskElement1.textContent = task.question;
+    optionsElement1.innerHTML = '';
 
     task.options.forEach(option => {
         const radioButton = document.createElement('input');
@@ -68,58 +68,115 @@ function showTask() {
         radioButton.name = 'options';
         radioButton.value = option;
         radioButton.addEventListener('change', checkAnswer);
-        optionsElement.appendChild(radioButton);
+        optionsElement1.appendChild(radioButton);
 
 
         const label = document.createElement('label');
         label.textContent = option;
-        optionsElement.appendChild(label);
-        optionsElement.appendChild(document.createElement('br'));
+        optionsElement1.appendChild(label);
+        optionsElement1.appendChild(document.createElement('br'));
     });
 }
 
 function checkAnswer(e) {
     const selectedAnswer = e.target.value;
-    const task = tasks[currentTaskIndex];
+    const task = tasks[currentTaskIndex1];
     if (selectedAnswer === task.answer) {
-        resultElement.textContent = 'Правильно';
-        resultElement.style.color = 'green';
-        correctAnswers++;
+        resultElement1.textContent = 'Правильно';
+        resultElement1.style.color = 'green';
+        correctAnswers1++;
     } else {
-        resultElement.textContent = `Помилка, правильна відповідь "${task.answer}"`;
-        resultElement.style.color = 'red';
+        resultElement1.textContent = `Помилка, правильна відповідь "${task.answer}"`;
+        resultElement1.style.color = 'red';
         e.target.disabled = true;
     }
 
-    nextTaskButton.disabled = false;
+    nextTaskButton1.disabled = false;
     document.querySelectorAll('input[type="radio"]').forEach(radioButton => {
         radioButton.removeEventListener('change', checkAnswer);
     });
 }
 
 function nextTask() {
-    currentTaskIndex++;
-    if (currentTaskIndex < tasks.length) {
-        showTask();
-        resultElement.textContent = '';
-        nextTaskButton.disabled = true;
+    currentTaskIndex1++;
+    if (currentTaskIndex1 < tasks.length) {
+        showTask1();
+        resultElement1.textContent = '';
+        nextTaskButton1.disabled = true;
     } else {
-        const percentage = (correctAnswers / tasks.length) * 100;
-        scoreElement.textContent = `Загальний рахунок: ${percentage.toFixed(2)}% (${correctAnswers} правильних відповідей з  ${tasks.length})`;
-        nextTaskButton.disabled = true;
+        const percentage = (correctAnswers1 / tasks.length) * 100;
+        scoreElement1.textContent = `Загальний рахунок: ${percentage.toFixed(2)}% (${correctAnswers1} правильних відповідей з  ${tasks.length})`;
+        nextTaskButton1.disabled = true;
     }
 }
 
-nextTaskButton.addEventListener('click', nextTask);
+nextTaskButton1.addEventListener('click', nextTask);
 
 start3.addEventListener('click', function (e) {
     e.preventDefault();
     document.getElementById('task3').style.display = 'block';
     document.getElementById('start3').style.display = 'none';
-    showTask();
+    showTask1();
 });
 
 // =================================================================== 4
+
+let currentTaskIndex2 = 0;
+let correctAnswers2 = 0;
+
+const scoreElement2 = document.getElementById('score2');
+const nextTaskButton2 = document.getElementById('nextTask2');
+nextTaskButton2.disabled = true;
+const taskElement2 = document.getElementById('task2');
+const answerElement = document.getElementById('answer');
+const checkAnswerButton= document.getElementById('check_answer');
+const resultElement2 = document.getElementById('result4');
+
+
+function showTask2() {
+    const task = tasks[currentTaskIndex2];
+    taskElement2.textContent = task.question;
+}
+
+
+checkAnswerButton.addEventListener('click', function (e) {
+    e.preventDefault();
+    const task = tasks[currentTaskIndex2];
+    if (answerElement.value === task.answer) {
+        resultElement2.textContent = 'Правильно';
+        resultElement2.style.color = 'green';
+        correctAnswers2++;
+    } else {
+        resultElement2.textContent = `Помилка, правильна відповідь "${task.answer}"`;
+        resultElement2.style.color = 'red';
+        this.disabled = true;
+    }
+
+    nextTaskButton2.disabled = false;
+});
+
+
+function nextTask2() {
+    currentTaskIndex2++;
+    if (currentTaskIndex2 < tasks.length) {
+        showTask2();
+        resultElement2.textContent = '';
+        nextTaskButton2.disabled = true;
+    } else {
+        const percentage = (correctAnswers1 / tasks.length) * 100;
+        scoreElement2.textContent = `Загальний рахунок: ${percentage.toFixed(2)}% (${correctAnswers1} правильних відповідей з  ${tasks.length})`;
+        nextTaskButton2.disabled = true;
+    }
+}
+
+nextTaskButton2.addEventListener('click', nextTask2);
+
+
+
+
+
+
+
 
 
 
@@ -129,7 +186,7 @@ start4.addEventListener('click', function (e) {
     e.preventDefault();
     document.getElementById('task4').style.display = 'block';
     document.getElementById('start4').style.display = 'none';
-    showTask();
+    showTask2();
 });
 
 
