@@ -132,12 +132,10 @@ const answerElement = document.getElementById('answer');
 const checkAnswerButton= document.getElementById('check_answer');
 const resultElement2 = document.getElementById('result4');
 
-
 function showTask2() {
     const task = tasks[currentTaskIndex2];
     taskElement2.textContent = task.question;
 }
-
 
 checkAnswerButton.addEventListener('click', function (e) {
     e.preventDefault();
@@ -146,6 +144,7 @@ checkAnswerButton.addEventListener('click', function (e) {
         resultElement2.textContent = 'Правильно';
         resultElement2.style.color = 'green';
         correctAnswers2++;
+        this.disabled = true;
     } else {
         resultElement2.textContent = `Помилка, правильна відповідь "${task.answer}"`;
         resultElement2.style.color = 'red';
@@ -155,32 +154,22 @@ checkAnswerButton.addEventListener('click', function (e) {
     nextTaskButton2.disabled = false;
 });
 
-
 function nextTask2() {
+    answerElement.value = '';
+    checkAnswerButton.disabled = false;
     currentTaskIndex2++;
     if (currentTaskIndex2 < tasks.length) {
         showTask2();
         resultElement2.textContent = '';
         nextTaskButton2.disabled = true;
     } else {
-        const percentage = (correctAnswers1 / tasks.length) * 100;
-        scoreElement2.textContent = `Загальний рахунок: ${percentage.toFixed(2)}% (${correctAnswers1} правильних відповідей з  ${tasks.length})`;
+        const percentage = (correctAnswers2 / tasks.length) * 100;
+        scoreElement2.textContent = `Загальний рахунок: ${percentage.toFixed(2)}% (${correctAnswers2} правильних відповідей з  ${tasks.length})`;
         nextTaskButton2.disabled = true;
     }
 }
 
 nextTaskButton2.addEventListener('click', nextTask2);
-
-
-
-
-
-
-
-
-
-
-
 
 start4.addEventListener('click', function (e) {
     e.preventDefault();
@@ -190,3 +179,19 @@ start4.addEventListener('click', function (e) {
 });
 
 
+// =================================================================== 5
+//  НУЖНО ПЕРЕДЕЛАТЬ, ОНО НЕ РАБОАТЕТ
+let images = document.querySelectorAll('.gallery_item');
+
+document.addEventListener('DOMContentLoaded', function() {
+    images.forEach(function(image) {
+        image.classList.add('inactive');
+    });
+});
+
+images.addEventListener('click', function(e) {
+    
+    images.forEach(function(image) {
+        image.classList.remove('inactive');
+    });
+})
