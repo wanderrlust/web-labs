@@ -295,3 +295,42 @@ changeSizeButton.addEventListener('click', function () {
         isImageEnlarged = false;
     }
 });
+
+// =================================================================== 9
+
+const buyButtons = document.querySelectorAll('.product_buy_btn');
+const productCounts = document.querySelectorAll('.product_count');
+
+buyButtons.forEach((button, index) => {
+    button.addEventListener('click', function () {
+        const count = parseInt(productCounts[index].textContent);
+        productCounts[index].textContent = count + 1;
+        button.classList.add('added');
+    });
+});
+
+// =================================================================== 10
+
+    const slides = document.querySelector('.slides');
+    const prevBtn = document.querySelector('.prevBtn');
+    const nextBtn = document.querySelector('.nextBtn');
+    const slideWidth = slides.clientWidth;
+    const totalSlides = slides.children.length;
+    let currentIndex = 0;
+
+    function goToSlide(index) {
+        if (index < 0) {
+            index = totalSlides - 1;
+        } else if (index >= totalSlides) {
+            index = 0;
+        }
+        slides.style.transform = `translateX(-${slideWidth * index}px)`;
+        currentIndex = index;
+    }
+    prevBtn.addEventListener('click', function() {
+        goToSlide(currentIndex - 1);
+    });
+
+    nextBtn.addEventListener('click', function() {
+        goToSlide(currentIndex + 1);
+    });
