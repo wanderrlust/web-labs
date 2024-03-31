@@ -7,6 +7,10 @@
     <title>Лабораторна робота №4</title>
 </head>
 <style>
+    body {
+        padding-bottom: 200px;
+    }
+
     * {
         box-sizing: border-box;
     }
@@ -98,10 +102,63 @@
 
     .gallery_item {
         width: 300px;
+        filter: grayscale(0%);
+        opacity: 1;
+        transition: filter 0.3s, opacity 0.3s;
+        cursor: pointer;
     }
-    .inactive {
+
+    .gallery_item.inactive {
         filter: grayscale(100%);
-        opacity: 50%;
+        opacity: 0.5;
+        transition: filter 0.3s, opacity 0.3s;
+    }
+
+    .section_wrap {
+        padding: 30px;
+        border: 2px solid teal;
+        margin-bottom: 10px;
+    }
+
+    .section_item {
+        border: 2px solid teal;
+    }
+
+    .section_wrap.focused {
+        background-color: rgba(0, 128, 128, 0.488);
+    }
+
+    .figure_settings {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .figure_params {
+        margin-left: 200px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .figure_block_wrap {
+        width: 500px;
+        padding: 50px 0;
+    }
+
+    .params_item input {
+        width: 300px;
+    }
+
+    #image_resize {
+        width: 200px;
+        max-width: 100%;
+        height: auto;
+    }
+    .image_resize_wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
     }
 </style>
 
@@ -270,6 +327,80 @@
         </div>
         <br><br>
         <hr class="next"><br><br>
+
+
+        <div class="wrapper_item">
+            <div class="item_title">Завдання №6</div>
+            <div class="item_subtitle">Активні секції</div>
+            <div class="section_wrap">
+                <input type="text" class="section_item" placeholder="Почніть щось вводити">
+            </div>
+            <div class="section_wrap">
+                <input type="text" class="section_item" placeholder="Почніть щось вводити">
+            </div>
+            <div class="section_wrap">
+                <input type="text" class="section_item" placeholder="Почніть щось вводити">
+            </div>
+            <div class="section_wrap">
+                <input type="text" class="section_item" placeholder="Почніть щось вводити">
+            </div>
+            <div class="section_wrap">
+                <input type="text" class="section_item" placeholder="Почніть щось вводити">
+            </div>
+        </div>
+        <br><br>
+        <hr class="next"><br><br>
+
+
+        <div class="wrapper_item" style="height: 450px;">
+            <div class="item_title">Завдання №7</div>
+            <div class="item_subtitle">Зміна властивостей фігури</div>
+            <div class="figure_settings">
+                <div class="figure_params">
+                    <div class="params_item">
+                        <label for="width_range">width: 0</label>
+                        <input type="range" id="width_range" class="inputRange" min="50" max="400" value="200">
+                        <label for="width_range">400</label>
+                        <input type="number" id="width_range_text" style="width: 60px;" max="400">
+                    </div>
+                    <div class="params_item">
+                        <label for="height_range">height: 0</label>
+                        <input type="range" id="height_range" class="inputRange" min="50" max="200" value="100">
+                        <label for="height_range">200</label>
+                        <input type="number" id="height_range_text" style="width: 60px;" max="200">
+                    </div>
+                    <div class="params_item">
+                        <label for="rotation_range">rotate: 0</label>
+                        <input type="range" id="rotation_range" class="inputRange" min="0" max="360" value="0">
+                        <label for="rotation_range">360</label>
+                        <input type="number" id="rotation_range_text" style="width: 60px;" max="360">
+                    </div>
+                </div>
+
+                <div class="figure_block_wrap">
+                    <div id="figure_block" style="width: 200px; height: 100px; background-color: blue;"></div>
+                </div>
+            </div>
+        </div>
+        <br><br>
+        <hr class="next"><br><br>
+
+
+        <div class="wrapper_item" style="height: 450px;">
+            <div class="item_title">Завдання №8</div>
+            <div class="item_subtitle">Зміна розміру зображення</div>
+            <div class="image_resize_wrap">
+                <button id="changeSizeButton">Змінити розмір у 2 рази</button>
+                <img id="image_resize"
+                    src="https://images.pexels.com/photos/301920/pexels-photo-301920.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    alt="Example Image">
+            </div>
+        </div>
+        <br><br>
+        <hr class="next"><br><br>
+
+
+
     </div>
     <script src="main.js"></script>
 </body>

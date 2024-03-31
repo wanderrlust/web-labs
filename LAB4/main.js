@@ -129,7 +129,7 @@ const nextTaskButton2 = document.getElementById('nextTask2');
 nextTaskButton2.disabled = true;
 const taskElement2 = document.getElementById('task2');
 const answerElement = document.getElementById('answer');
-const checkAnswerButton= document.getElementById('check_answer');
+const checkAnswerButton = document.getElementById('check_answer');
 const resultElement2 = document.getElementById('result4');
 
 function showTask2() {
@@ -178,20 +178,120 @@ start4.addEventListener('click', function (e) {
     showTask2();
 });
 
-
 // =================================================================== 5
-//  НУЖНО ПЕРЕДЕЛАТЬ, ОНО НЕ РАБОАТЕТ
-let images = document.querySelectorAll('.gallery_item');
 
-document.addEventListener('DOMContentLoaded', function() {
-    images.forEach(function(image) {
+document.addEventListener('DOMContentLoaded', function () {
+    let images = document.querySelectorAll('.gallery_item');
+    images.forEach(function (image) {
         image.classList.add('inactive');
+
+        image.addEventListener('click', function () {
+            if (image.classList.contains('inactive')) {
+                image.classList.remove('inactive');
+            } else {
+                image.classList.add('inactive');
+            }
+        });
     });
 });
 
-images.addEventListener('click', function(e) {
-    
-    images.forEach(function(image) {
-        image.classList.remove('inactive');
+
+// =================================================================== 6
+
+let sectionInputs = document.querySelectorAll('.section_item');
+
+sectionInputs.forEach(function (sectionInput) {
+    sectionInput.addEventListener('focus', function () {
+        let parentElement = sectionInput.parentElement;
+        parentElement.classList.add('focused');
     });
-})
+
+    sectionInput.addEventListener('blur', function () {
+        let parentElement = sectionInput.parentElement;
+        parentElement.classList.remove('focused');
+    });
+});
+
+// =================================================================== 7
+
+let block = document.getElementById('figure_block');
+let widthRange = document.getElementById('width_range');
+let heightRange = document.getElementById('height_range');
+let rotationRange = document.getElementById('rotation_range');
+
+let widthRangeText = document.getElementById('width_range_text');
+let heightRangeText = document.getElementById('height_range_text');
+let rotationRangeText = document.getElementById('rotation_range_text');
+
+document.addEventListener('DOMContentLoaded', function () {
+    widthRangeText.value = widthRange.value;
+    heightRangeText.value = heightRange.value;
+    rotationRangeText.value = rotationRange.value;
+});
+
+widthRange.addEventListener('input', updateSize);
+heightRange.addEventListener('input', updateSize);
+rotationRange.addEventListener('input', updateRotation);
+
+widthRangeText.addEventListener('input', updateSizeNum);
+heightRangeText.addEventListener('input', updateSizeNum);
+rotationRangeText.addEventListener('input', updateRotationNum);
+
+function updateSize() {
+    const width = widthRange.value + 'px';
+    const height = heightRange.value + 'px';
+    block.style.width = width;
+    block.style.height = height;
+    widthRangeText.value = widthRange.value;
+    heightRangeText.value = heightRange.value;
+}
+
+function updateRotation() {
+    const rotation = rotationRange.value + 'deg';
+    block.style.transform = `rotate(${rotation})`;
+    rotationRangeText.value = rotationRange.value;
+}
+
+
+function updateSizeNum() {
+    if (widthRangeText.value && heightRangeText.value > 50) {
+        const width = widthRangeText.value + 'px';
+        const height = heightRangeText.value + 'px';
+        block.style.width = width;
+        block.style.height = height;
+        widthRange.value = widthRangeText.value;
+        heightRange.value = heightRangeText.value;
+    }
+
+}
+
+function updateRotationNum() {
+    if (rotationRangeText.value > 0) {
+        const rotation = rotationRangeText.value + 'deg';
+        block.style.transform = `rotate(${rotation})`;
+        rotationRange.value = rotationRangeText.value;
+    }
+
+}
+
+// =================================================================== 8
+
+const image = document.getElementById('image_resize');
+const changeSizeButton = document.getElementById('changeSizeButton');
+
+let originalWidth = image.width;
+let originalHeight = image.height;
+
+let isImageEnlarged = false;
+
+changeSizeButton.addEventListener('click', function () {
+    if (!isImageEnlarged) {
+        image.style.width = (originalWidth * 2) + 'px';
+        image.style.height = (originalHeight * 2) + 'px';
+        isImageEnlarged = true;
+    } else {
+        image.style.width = originalWidth + 'px';
+        image.style.height = originalHeight + 'px';
+        isImageEnlarged = false;
+    }
+});
