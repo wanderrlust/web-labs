@@ -60,44 +60,224 @@
         display: none;
     }
 
-    /* ================================================================ */
+    .table1 {
+        border-spacing: 0;
+        margin: 0 auto;
+    }
 
+    .table1 td,
+    th {
+        border-right: 1px solid #000;
+        border-bottom: 1px solid #000;
+        padding: 10px;
+    }
+
+    .table1 td:nth-child(1) {
+        border-left: 1px solid #000;
+    }
+
+    .table1 th:nth-child(1) {
+        border-left: 1px solid #000;
+    }
+
+    .table1 th {
+        border-top: 1px solid #000;
+        background-color: #6c6c6c;
+        color: #fff;
+        font-weight: bold;
+    }
+
+    .controls_wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 15px;
+    }
+
+    .wrapper_item_task2 {
+        padding: 20px;
+    }
+
+    #binaryInput {
+        width: 100%;
+        height: 100px;
+        margin-bottom: 20px;
+    }
+
+    #squaresContainer {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .square {
+        border: 1px solid blue;
+        width: 30px;
+        height: 30px;
+        background-color: gray;
+    }
+
+    .square.black {
+        background-color: black;
+    }
+
+    .square.white {
+        background-color: white;
+    }
+
+    .color_palette {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .color {
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        border: 2px solid transparent;
+        transition: border 0.3s;
+    }
+
+    .color.selected {
+        border: 2px solid black;
+    }
+
+    .color_block {
+        width: 100%;
+        height: 200px;
+        background-color: #ccc;
+        border: 1px solid #000;
+        transition: background 0.3s;
+    }
+
+    .text_blocks {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 50px;
+    }
+
+    .text_block {
+        padding: 10px;
+        border: 1px solid #000;
+        position: relative;
+    }
+
+    .text_block textarea {
+        width: 100%;
+        height: 60px;
+    }
+
+    button {
+        margin-right: 5px;
+        cursor: pointer;
+    }
+
+    .text_content {
+        font-size: 24px;
+        min-height: 100px;
+        background-color: #ddd;
+        border: 1px solid #000;
+        margin-bottom: 20px;
+    }
+
+    /* ================================================================ */
 </style>
 
 <body>
     <div class="wrapper">
         <div class="wrapper_item">
             <div class="item_title">Завдання №1</div>
-            <div class="item_subtitle">Вивести в рядок значення вибраних елементів</div>
+            <div class="item_subtitle">Додати нового користувача в таблицю</div>
             <form class="forma" action="">
-                <div class="checkbox_wrap">
-                    <div class="checkbox_item">
-                        <input type="checkbox" value="Ukrainian" id="check_string1" class="checkbox_input1">
-                        <label for="check_string1" class="check_title">Ukrainian</label>
-                    </div>
-                    <div class="checkbox_item">
-                        <input type="checkbox" value="English" id="check_string2" class="checkbox_input1">
-                        <label for="check_string2" class="check_title">English</label>
-                    </div>
-                    <div class="checkbox_item">
-                        <input type="checkbox" value="Spanish" id="check_string3" class="checkbox_input1">
-                        <label for="check_string3" class="check_title">Spanish</label>
-                    </div>
-                </div>
+                <table class="table1">
+                    <tr>
+                        <th>№_</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Tom</td>
+                        <td>Hank</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Bruce</td>
+                        <td>Willis</td>
+                    </tr>
+                </table>
                 <br><br>
-                <button id="start1">Виконати</button>
+                <div class="controls_wrap">
+                    <input id="table1_inputName" type="text" placeholder="Введіть ім'я">
+                    <input id="table1_inputLastName" type="text" placeholder="Введіть прізвище">
+                    <button id="start1">Додати запис</button>
+                </div>
                 <br><br>
                 <hr><br><br>
                 <label id="result1"></label>
             </form>
         </div>
         <br><br>
+
+
+
+
+
+        <div class="wrapper_item">
+            <div class="item_title">Завдання №2</div>
+            <div class="item_subtitle">1 і 0, як кольори</div>
+            <textarea id="binaryInput" placeholder="Введіть нулі та одиниці"></textarea>
+            <div id="squaresContainer"></div>
+        </div>
         <hr class="next"><br><br>
 
 
-        
-    </div>
-    <script src="main.js"></script>
+
+
+        <div class="wrapper_item">
+            <div class="item_title">Завдання №3</div>
+            <div class="item_subtitle">Вибрати потрібні кольори з палітри кольорів та залити ними даний прямокутник
+            </div>
+            <div class="color_palette">
+                <div class="color" data-color="#FF0000" style="background-color: #FF0000;"></div>
+                <div class="color" data-color="#00FF00" style="background-color: #00FF00;"></div>
+                <div class="color" data-color="#0000FF" style="background-color: #0000FF;"></div>
+                <div class="color" data-color="#FFFF00" style="background-color: #FFFF00;"></div>
+                <div class="color" data-color="#FF00FF" style="background-color: #FF00FF;"></div>
+                <div class="color" data-color="#00FFFF" style="background-color: #00FFFF;"></div>
+            </div>
+            <div id="colorBlock" class="color_block"></div>
+        </div>
+        <hr class="next"><br><br>
+
+
+
+
+        <div class="wrapper_item">
+            <div class="item_title">Завдання №4 </div>
+            <div class="item_subtitle">Редагування та видалення абзаців тексту</div>
+            <div class="text_blocks">
+                <div class="text_block">
+                    <div class="text_content">This is block 1</div>
+                    <button class="edit_btn">Редагувати</button>
+                    <button class="delete_btn">Видалити</button>
+                </div>
+                <div class="text_block">
+                    <div class="text_content">This is block 2</div>
+                    <button class="edit_btn">Редагувати</button>
+                    <button class="delete_btn">Видалити</button>
+                </div>
+                <div class="text_block">
+                    <div class="text_content">This is block 3</div>
+                    <button class="edit_btn">Редагувати</button>
+                    <button class="delete_btn">Видалити</button>
+                </div>
+            </div>
+
+
+        </div>
+        <script src="main.js"></script>
 </body>
 
 </html>
