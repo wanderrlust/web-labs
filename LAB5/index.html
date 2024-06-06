@@ -181,6 +181,182 @@
         margin-bottom: 20px;
     }
 
+    .palette {
+        display: flex;
+        margin-bottom: 20px;
+        justify-content: center;
+    }
+
+    .color {
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        margin-right: 10px;
+        border: 2px solid transparent;
+    }
+
+    .color.selected {
+        border: 2px solid black;
+    }
+
+    .canvas {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 auto;
+        width: 500px;
+    }
+
+    .square4 {
+        width: 50px;
+        height: 50px;
+        border: 1px solid #ccc;
+        margin: -1px 0 0 -1px;
+    }
+
+    .card-container {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .card {
+        width: 200px;
+        height: 300px;
+        perspective: 1000px;
+    }
+
+    .card-face {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        backface-visibility: hidden;
+        border: 1px solid #ccc;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 1s;
+    }
+
+    .card-back {
+        background-color: blue;
+        /* Цвет рубашки карты */
+    }
+
+    .card-front {
+        background-color: rgb(173, 245, 115);
+        /* Цвет лицевой стороны карты */
+        transform: rotateY(180deg);
+    }
+
+    .card.flipped .card-back {
+        transform: rotateY(180deg);
+    }
+
+    .card.flipped .card-front {
+        transform: rotateY(0deg);
+    }
+
+    .container_task7 {
+        width: 500px;
+        height: 500px;
+        border: 2px solid #000;
+        position: relative;
+        margin: 0 auto;
+    }
+
+    .square_task7 {
+        width: 50px;
+        height: 50px;
+        background-color: red;
+        position: absolute;
+        cursor: grab;
+    }
+
+    .forum {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .forum_messages {
+        width: 100%;
+        max-width: 600px;
+        margin-bottom: 20px;
+    }
+
+    .forum_messages ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .forum_messages li {
+        background-color: #f9f9f9;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    .forum_form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .forum_form input,
+    .forum_form textarea {
+        width: 100%;
+        max-width: 600px;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    .forum_form button {
+        padding: 10px 20px;
+        border: none;
+        background-color: teal;
+        color: white;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .forum_form button:hover {
+        background-color: darkslategray;
+    }
+
+    .book-list {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .book-list li {
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #ddd;
+        cursor: pointer;
+    }
+
+    .selected {
+        background-color: green;
+        color: white;
+    }
+
+    .container_task9 {
+        width: 300px;
+        height: 300px;
+        border: 1px solid #000;
+        position: relative;
+        overflow: hidden;
+        margin: 0 auto;
+    }
+
+    .button_task9 {
+        position: absolute;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+
     /* ================================================================ */
 </style>
 
@@ -255,7 +431,7 @@
 
 
         <div class="wrapper_item">
-            <div class="item_title">Завдання №4 </div>
+            <div class="item_title">Завдання №4</div>
             <div class="item_subtitle">Редагування та видалення абзаців тексту</div>
             <div class="text_blocks">
                 <div class="text_block">
@@ -275,11 +451,218 @@
                     <button class="delete_btn">Видалити</button>
                 </div>
             </div>
-
-
-            
         </div>
-        <script src="main.js"></script>
+        <hr class="next"><br><br>
+
+
+        <div class="wrapper_item">
+            <div class="item_title">Завдання №5</div>
+            <div class="item_subtitle">Малювання квадратиками</div>
+            <div class="palette">
+                <div class="color" style="background-color: red;"></div>
+                <div class="color" style="background-color: green;"></div>
+                <div class="color" style="background-color: blue;"></div>
+                <div class="color" style="background-color: yellow;"></div>
+                <div class="color" style="background-color: cornflowerblue;"></div>
+                <div class="color" style="background-color: cyan;"></div>
+                <div class="color" style="background-color: lightcoral;"></div>
+                <div class="color" style="background-color: lime;"></div>
+            </div>
+            <div class="canvas">
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+                <div class="square4"></div>
+            </div>
+        </div>
+        <hr class="next"><br><br>
+
+
+
+        <div class="wrapper_item">
+            <div class="item_title">Завдання №6</div>
+            <div class="item_subtitle">Перегляд гральних карт</div>
+            <div class="card-container">
+                <div class="card">
+                    <div class="card-face card-back"></div>
+                    <div class="card-face card-front"></div>
+                </div>
+                <div class="card">
+                    <div class="card-face card-back"></div>
+                    <div class="card-face card-front"></div>
+                </div>
+                <div class="card">
+                    <div class="card-face card-back"></div>
+                    <div class="card-face card-front"></div>
+                </div>
+                <div class="card">
+                    <div class="card-face card-back"></div>
+                    <div class="card-face card-front"></div>
+                </div>
+                <div class="card">
+                    <div class="card-face card-back"></div>
+                    <div class="card-face card-front"></div>
+                </div>
+            </div>
+        </div>
+        <hr class="next"><br><br>
+
+
+
+        <div class="wrapper_item">
+            <div class="item_title">Завдання №7</div>
+            <div class="item_subtitle">Перетягування квадратиків</div>
+            <div class="container_task7">
+                <div class="square_task7" draggable="true"></div>
+                <div class="square_task7" draggable="true"></div>
+                <div class="square_task7" draggable="true"></div>
+            </div>
+        </div>
+        <hr class="next"><br><br>
+
+        <div class="wrapper_item">
+            <div class="item_title">Завдання №8</div>
+            <div class="item_subtitle">Форум</div>
+            <div class="forum">
+                <div class="forum_messages">
+                    <ul id="messageList">
+                    </ul>
+                </div>
+                <div class="forum_form">
+                    <input type="text" id="username" placeholder="Ваше ім'я">
+                    <textarea id="message" placeholder="Ваше повідомлення"></textarea>
+                    <button id="submitMessage">Додати повідомлення</button>
+                </div>
+            </div>
+        </div>
+        <hr class="next"><br><br>
+
+
+
+
+        <div class="wrapper_item">
+            <div class="item_title">Завдання №9</div>
+            <div class="item_subtitle">Список книг</div>
+            <ul class="book-list">
+                <li>1. «Володар кілець» Джон Р. Р. Толкін</li>
+                <li>2. «Гордість і упередження» Джейн Остін</li>
+                <li>3. «Темні початки» Філіп Пулман</li>
+                <li>4. «Автостопом по галактиці» Дуглас Адамс</li>
+                <li>5. «Гаррі Поттер і Кубок вогню» Джоан Роулінг</li>
+                <li>6. «Вбити пересмішника» Харпер Лі</li>
+            </ul>
+        </div>
+        <hr class="next"><br><br>
+
+
+
+        <div class="wrapper_item">
+            <div class="item_title">Завдання №10</div>
+            <div class="item_subtitle">Кнопка піймай мене</div>
+            <div class="container_task9">
+                <button class="button_task9">Піймай мене</button>
+            </div>
+        </div>
+        <hr class="next"><br><br>
+
+    </div>
+    <script src="main.js"></script>
 </body>
 
 </html>
